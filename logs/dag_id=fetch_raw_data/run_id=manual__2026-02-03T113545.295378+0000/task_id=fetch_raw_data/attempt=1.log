@@ -1,0 +1,19 @@
+[2026-02-03T11:35:51.366+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: fetch_raw_data.fetch_raw_data manual__2026-02-03T11:35:45.295378+00:00 [queued]>
+[2026-02-03T11:35:51.373+0000] {taskinstance.py:1979} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: fetch_raw_data.fetch_raw_data manual__2026-02-03T11:35:45.295378+00:00 [queued]>
+[2026-02-03T11:35:51.374+0000] {taskinstance.py:2193} INFO - Starting attempt 1 of 3
+[2026-02-03T11:35:51.390+0000] {taskinstance.py:2217} INFO - Executing <Task(PythonOperator): fetch_raw_data> on 2026-02-03 11:35:45.295378+00:00
+[2026-02-03T11:35:51.395+0000] {standard_task_runner.py:60} INFO - Started process 242 to run task
+[2026-02-03T11:35:51.400+0000] {standard_task_runner.py:87} INFO - Running: ['airflow', 'tasks', 'run', 'fetch_raw_data', 'fetch_raw_data', 'manual__2026-02-03T11:35:45.295378+00:00', '--job-id', '7', '--raw', '--subdir', 'DAGS_FOLDER/daily_dags.py', '--cfg-path', '/tmp/tmpanumuqbp']
+[2026-02-03T11:35:51.403+0000] {standard_task_runner.py:88} INFO - Job 7: Subtask fetch_raw_data
+[2026-02-03T11:35:51.464+0000] {task_command.py:423} INFO - Running <TaskInstance: fetch_raw_data.fetch_raw_data manual__2026-02-03T11:35:45.295378+00:00 [running]> on host 02fa1122a0ab
+[2026-02-03T11:35:51.528+0000] {taskinstance.py:2513} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='data-eng' AIRFLOW_CTX_DAG_ID='fetch_raw_data' AIRFLOW_CTX_TASK_ID='fetch_raw_data' AIRFLOW_CTX_EXECUTION_DATE='2026-02-03T11:35:45.295378+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-02-03T11:35:45.295378+00:00'
+[2026-02-03T11:35:51.531+0000] {logging_mixin.py:188} INFO - 🔥 FUNCTION STARTED 🔥
+[2026-02-03T11:35:51.535+0000] {logging_mixin.py:188} WARNING - /home/airflow/.local/lib/python3.8/site-packages/airflow/utils/context.py:315 AirflowContextDeprecationWarning: Accessing 'execution_date' from the template is deprecated and will be removed in a future version. Please use 'data_interval_start' or 'logical_date' instead.
+[2026-02-03T11:35:51.559+0000] {_default.py:683} WARNING - No project ID could be determined. Consider running `gcloud config set project` or setting the GOOGLE_CLOUD_PROJECT environment variable
+[2026-02-03T11:35:52.069+0000] {logging_mixin.py:188} INFO - Calling TwelveData API: https://api.twelvedata.com/time_series?apikey=d132550f68964fdd81730dd23dcb82a3&interval=1day&start_date=2026-02-02&end_date=2026-02-03&format=CSV&type=stock&exchange=NASDAQ&country=US&symbol=AAPL&timezone=exchange
+[2026-02-03T11:35:52.649+0000] {logging_mixin.py:188} INFO - Response received, length: 98
+[2026-02-03T11:35:53.362+0000] {logging_mixin.py:188} INFO - File raw/date=2026-02-02/aapl.csv uploaded to bucket apple-data-raw
+[2026-02-03T11:35:53.364+0000] {python.py:202} INFO - Done. Returned value was: None
+[2026-02-03T11:35:53.378+0000] {taskinstance.py:1149} INFO - Marking task as SUCCESS. dag_id=fetch_raw_data, task_id=fetch_raw_data, execution_date=20260203T113545, start_date=20260203T113551, end_date=20260203T113553
+[2026-02-03T11:35:53.434+0000] {local_task_job_runner.py:234} INFO - Task exited with return code 0
+[2026-02-03T11:35:53.444+0000] {taskinstance.py:3312} INFO - 0 downstream tasks scheduled from follow-on schedule check
