@@ -1,0 +1,2 @@
+CREATE EXTERNAL SCHEMA IF NOT EXISTS apple_staging;
+
